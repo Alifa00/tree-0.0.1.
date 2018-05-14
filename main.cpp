@@ -6,10 +6,10 @@ private:
         node_t * left;
         node_t * right;
         int value;
-        node_t() {
+        node_t(int val) {
             left = nullptr;
             right = nullptr;
-            value = 0;
+            value = val;
         }
         ~node_t() {
             delete left;
@@ -18,15 +18,13 @@ private:
         void add(int val) {
             if (value > val) {
                 if (!left) {
-                    left = new node_t();
-                    left->value = val;
+                    left = new node_t(val);
                 }
                 else left->add(val);
             }
             else if (value < val) {
                 if (!right) {
-                    right = new node_t();
-                    right->value = val;
+                    right = new node_t(val);
                 }
                 else right->add(val);
             }
